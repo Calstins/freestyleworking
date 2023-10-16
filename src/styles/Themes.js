@@ -2,6 +2,8 @@
 export const dark = {
     body: '#202020',
     text:'#fff',
+    blue:'#143464',
+    green:'#06e2a0',
     bodyRgba:'32,32,32',
     textRgba:'255,255,255',
 

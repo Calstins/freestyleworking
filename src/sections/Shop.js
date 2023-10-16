@@ -134,7 +134,7 @@ const Shop = () => {
                     scroller: '.App',
                     scrub: true,
                     pin: true,
-                    markers: true,
+                    // markers: true,
                 },
                 height: `${scrollingElement.scrollWidth}px`,
                 ease: 'none',
@@ -148,13 +148,18 @@ const Shop = () => {
                     end: pinWrapWidth,
                     scroller: '.App',
                     scrub: true,
-                    markers: true,
+                    // markers: true,
                 },
                 x: -pinWrapWidth,
                 ease: 'none',
             });
             ScrollTrigger.refresh();
         }, 1000);
+         return () => {
+            //clear instances
+            t1.kill();
+            ScrollTrigger.kill();
+        };
     }, []);
 
 

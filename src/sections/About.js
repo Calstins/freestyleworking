@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Img1 from '../assets/Images/img1.webp'
 // import Img2 from '../assets/Images/2.webp'
-import Img3 from '../assets/Images/3.webp'
+import Img3 from '../assets/Images/image3.webp'
 
 const Section = styled.section`
    position : relative;

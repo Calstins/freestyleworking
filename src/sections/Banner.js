@@ -29,7 +29,7 @@ const BannerComponent = styled.h1`
 
     span {
         display: block;
-        background-color: ${props=>props.theme.body};
+        background-color: ${props=>props.theme.blue};
         padding: 1rem 2rem;
     }
 `
