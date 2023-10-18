@@ -32,6 +32,27 @@ const Overlayer = styled.div`
     box-shadow: 0 0 0 5vw ${props=>props.theme.text};
     border: 3px solid ${props => props.theme.body};
     z-index: 11;
+
+    @media (max-width:70em){
+        width: 40vw;
+        height: 80vh;
+    };
+
+    @media (max-width:64em){
+        width: 50vw;
+        box-shadow: 0 0 0 60vw ${props=>props.theme.text};
+    };
+
+    @media (max-width:48em){
+        width: 60vw;
+    };
+
+    @media (max-width:30em){
+       width: 80vw;
+        height: 60vh;
+    };
+
+
 `
 
 
@@ -59,6 +80,16 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (max-width:64em){
+        width: 30vw;
+    };
+    @media (max-width:48em){
+        width: 40vw;
+    };
+    @media (max-width:30em){
+        width: 60vw;
+    };
 `
 const Text = styled.div`
     width: 20%;
@@ -69,6 +100,17 @@ const Text = styled.div`
     top: 0;
     right: 0;
     z-index: 11;
+
+    /* @media (max-width:64em){
+        font-size: ${props=>props.theme.fontxxxl}
+    };
+
+    @media (max-width:48em){
+       font-size: ${props=>props.theme.fontxl};
+    }; */
+    @media (max-width:48em){
+        display: none;
+    };
 `
 const Item = styled.div`
 
@@ -143,7 +185,7 @@ const NewArrival = () => {
     }, []);
 
   return (
-    <Section ref={ref}>
+    <Section ref={ref} id='new-arrival'>
         <Overlayer/>
         <Title 
             data-scroll 
@@ -165,7 +207,7 @@ const NewArrival = () => {
             <br /><br />
             Explore the latest in clothing, from elegant dresses to casual streetwear. Unveil a world of possibilities in colors, patterns, and designs. Whether you're revamping your wardrobe or seeking that perfect standout piece, our new arrivals are designed to inspire your personal style journey.
             <br /><br />
-            Be the first to embrace what's new. Shop our latest arrivals today and stay ahead of the fashion curve.
+            Be the first to embrace what's new. Order our latest arrivals today and stay ahead of the fashion curve.
         </Text>
     </Section>
   )

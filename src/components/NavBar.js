@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
+import { useLocomotiveScroll } from 'react-locomotive-scroll'
 
 const NavContainer = styled(motion.div)`
     width: 100vw;
@@ -14,6 +15,10 @@ const NavContainer = styled(motion.div)`
     align-items: center;
 
     transition: all 0.3s ease;
+
+    @media (max-width:40em){
+        top: ${props => props.click ? "0" : `calc(-50vh - 4rem)`};
+    };
 `
 
 const MenuItems = styled(motion.ul)`
@@ -31,6 +36,12 @@ const MenuItems = styled(motion.ul)`
     padding: 0 10rem;
 
     cursor: pointer;
+    
+    @media (max-width:40em){
+       flex-direction: column;
+       padding: 2rem 0;
+       height: 50vh;
+    };
 `
 
 const MenuBtn = styled(motion.li)`
@@ -56,11 +67,22 @@ const MenuBtn = styled(motion.li)`
     text-transform: uppercase;
 
     cursor: pointer;
+
+     @media (max-width:40em){
+        width: 10rem;
+        height: 2rem;
+    };
 `
 
 const MenuItem = styled(motion.li)`
     text-transform: uppercase;
     color: ${props=>props.theme.text};
+    cursor: pointer;
+
+     @media (max-width:40em){
+       flex-direction: column;
+       padding: 0.5rem 0;
+    };
 `
 // const itemVariants={
 //     hidden:{
@@ -70,6 +92,16 @@ const MenuItem = styled(motion.li)`
 
 const NavBar = () => {
     const [click, setClick] = useState(false);
+
+    const {scroll}= useLocomotiveScroll()
+    const  handleScroll = (id) => {
+      let elem = document.querySelector(id)
+      scroll.scrollTo(elem, {
+        offset: '-100',
+        duration: '2000',
+        easing: [0.25, 0.0, 0.35, 1.0]
+      })
+    }
 
   return (
     <NavContainer click={click}
@@ -95,6 +127,7 @@ const NavBar = () => {
         >
             <MenuBtn onClick={()=>setClick(!click)}>Menu</MenuBtn>
             <MenuItem
+                onClick={()=>handleScroll('#home')}
                 whileHover = {{
                     scale:1.1, y:-5
                 }}
@@ -104,6 +137,7 @@ const NavBar = () => {
             >
                 Home</MenuItem>
             <MenuItem
+                onClick={()=>handleScroll('.about')}
                 whileHover = {{
                     scale:1.1, y:-5
                 }}
@@ -111,8 +145,10 @@ const NavBar = () => {
                     scale:0.9,y:0
                 }}
             >
-                About</MenuItem>
+                About
+            </MenuItem>
             <MenuItem
+                onClick={()=>handleScroll('#collection')}
                 whileHover = {{
                     scale:1.1, y:-5
                 }}
@@ -120,13 +156,27 @@ const NavBar = () => {
                     scale:0.9,y:0
                 }}
             >
-                Services</MenuItem>
+                Our Collections
+            </MenuItem>
             <MenuItem
+                onClick={()=>handleScroll('#new-arrival')}
+                whileHover = {{
+                    scale:1.1, y:-5
+                }}
+                whileTap = {{
+                    scale:0.9,y:0
+                }}
+            >
+                New Arrivals
+            </MenuItem>
+            <MenuItem
+                onClick={()=>handleScroll('#footer')}
                 whileHover = {{
                     scale:1.1, y:-5
                 }} 
             >
-                Contact</MenuItem>
+                Contact
+            </MenuItem>
         </MenuItems>
     </NavContainer>
   )
