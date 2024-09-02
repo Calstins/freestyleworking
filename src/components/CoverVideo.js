@@ -1,119 +1,155 @@
-import React from 'react'
-import styled from 'styled-components'
-import MainVideo from '../assets/underwears.mp4'
-import {motion} from 'framer-motion'
+import React from 'react';
+import styled from 'styled-components';
+import MainVideo from '../assets/underwears.mp4';
+import { motion } from 'framer-motion';
+import BrandMarquee from './BrandMarquee';
 
 const VideoContainer = styled.section`
-   width: 100%;;
-   height: 100vh;
-   position: relative;
+  width: 100%;
+  height: 100vh;
+  position: relative;
 
-   video {
+  video {
     width: 100%;
     height: 100vh;
     object-fit: cover;
 
     @media (max-width: 48em) {
-        object-position: center 10%;
+      object-position: center 10%;
     }
-   }
-   @media (max-width: 30em) {
-        object-position: center 50%;
-    }
-`
+  }
+  @media (max-width: 30em) {
+    object-position: center 50%;
+  }
+`;
 const DarkOverlay = styled.div`
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 
-    background-color: ${props => `rgba(${props.theme.bodyRgba},0.6)`};
-`
+  background-color: ${(props) => `rgba(${props.theme.bodyRgba},0.6)`};
+`;
 const Title = styled(motion.div)`
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: ${(props) => props.theme.text};
+
+  div {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: ${ props => props.theme.text};
+    flex-direction: row;
+  }
 
-    div{
-        display:flex;
-        flex-direction: row;
-    }
+  h1 {
+    font-family: 'Kaushan Script';
+    font-size: ${(props) => props.theme.fontxxxl};
+    text-shadow: 1px 1px 1px ${(props) => props.theme.body};
 
-    h1{
-        font-family: 'Kaushan Script';
-        font-size: ${props => props.theme.fontxxxl};
-        text-shadow:1px 1px 1px ${props=>props.theme.body};
+    @media screen and (max-width: 768px) {
+      font-size: ${(props) => props.theme.fontxxl};
+    }
+  }
+  h2 {
+    font-family: 'Sirin Stencil';
+    font-size: ${(props) => props.theme.fontmd};
+    text-shadow: 1px 1px 1px ${(props) => props.theme.body};
+    font-weight: 300;
+    text-transform: capitalize;
+  }
+`;
 
-        @media screen and (max-width: 768px) {
-            font-size: ${props => props.theme.fontxxl};
-        };
-    }
-    h2{
-        font-family: 'Sirin Stencil';
-        font-size: ${props => props.theme.fontmd};
-        text-shadow:1px 1px 1px ${props=>props.theme.body};
-        font-weight: 300;
-        text-transform: capitalize;
-    }
-`
 const container = {
-    hidden: {
-        opacity:0,
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 2,
+      staggerChildren: 0.3,
     },
-    show:{
-        opacity:1,
-        transition:{
-            delayChildren: 2,
-            staggerChildren: 0.3,
-        },
-    },
-
-}
+  },
+};
 
 const item = {
-    hidden: {
-        opacity:0,
-    },
-    show:{
-        opacity:1,
-    },
-
-}
-
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+  },
+};
 
 const CoverVideo = () => {
   return (
-    <VideoContainer>
+    <>
+      <VideoContainer>
         <DarkOverlay />
-        <Title variants ={container} initial='hidden' animate='show'>
-            <div>
-                <motion.h1 variants={item} data-scroll data-scroll-delay='0.13' data-scroll-speed='4'>Free</motion.h1>
-                <motion.h1 variants={item} data-scroll data-scroll-delay='0.09' data-scroll-speed='4'>style</motion.h1>
-                <motion.h1 variants={item} data-scroll data-scroll-delay='0.06' data-scroll-speed='4'>working</motion.h1>
-            </div>
-            <motion.h2 variants={item} 
-            data-scroll data-scroll-delay='0.04' data-scroll-speed='2'>Inspire. Create. Believe</motion.h2>
+        <Title variants={container} initial="hidden" animate="show">
+          <div>
+            <motion.h1
+              variants={item}
+              data-scroll
+              data-scroll-delay="0.13"
+              data-scroll-speed="4"
+            >
+              Free
+            </motion.h1>
+            <motion.h1
+              variants={item}
+              data-scroll
+              data-scroll-delay="0.09"
+              data-scroll-speed="4"
+            >
+              style
+            </motion.h1>
+            <motion.h1
+              variants={item}
+              data-scroll
+              data-scroll-delay="0.06"
+              data-scroll-speed="4"
+            >
+              working
+            </motion.h1>
+          </div>
+          <motion.h2
+            variants={item}
+            data-scroll
+            data-scroll-delay="0.04"
+            data-scroll-speed="2"
+          >
+            Inspire. Create. Believe
+          </motion.h2>
+          <motion.div
+            style={{
+              position: 'absolute',
+              top: '80%',
+              bottom: '0',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: 'max-content',
+              zIndex: '10',
+            }}
+          >
+            <BrandMarquee />
+          </motion.div>
         </Title>
-        <video 
-            src={MainVideo} 
-            type='video/mp4' 
-            autoPlay 
-            muted 
-            loop
-        />
-    </VideoContainer>
-  )
-}
 
-export default CoverVideo
+        <video src={MainVideo} type="video/mp4" autoPlay muted loop />
+      </VideoContainer>
+    </>
+  );
+};
+
+export default CoverVideo;
