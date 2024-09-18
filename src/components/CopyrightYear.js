@@ -14,7 +14,7 @@ const CopyrightYear = () => {
   }, []);
 
   return (
-    <span>&copy; {currentYear} YEGHS UK LTD. All Rights Reserved.</span>
+    <span>&copy; {currentYear} FREESTYLE WORKING BV. All Rights Reserved.</span>
   );
 };
 
