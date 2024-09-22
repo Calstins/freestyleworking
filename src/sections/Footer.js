@@ -218,7 +218,7 @@ const Footer = () => {
       <AddressBox>
         <ContactSection>
           <div>
-            <span>European Headquarters</span>
+            <span>Headquarter</span>
             <p>
               Joop Geesinkiweg 722, 1114Ab, <br />
               Amsterdam- Duivendrecht <br />
@@ -226,7 +226,7 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <span>Asia/ Sales Representative Office</span>
+            <span>Asia/ Operative Office</span>
             <p>
               House 14 (D-1, 4th floor), Road 18,
               <br />
@@ -235,7 +235,7 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <span>United Kingdom Sales Representative Office</span>
+            <span>United Kingdom Operative Office</span>
             <p>
               29, Dressinton Avenue, Se4 Jh <br />
               London <br />
@@ -243,7 +243,7 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <span>West African/Sales Representative Office</span>
+            <span>West African/Operative Office</span>
             <p>
               3, Kafi Street, Alausa 100212 Ikeja
               <br />
